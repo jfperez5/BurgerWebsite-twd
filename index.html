@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica maquetación con Tailwind CSS</title>
+    <title>Practica Burger Website maquetación con Tailwind CSS</title>
+    <link rel="shortcut icon" href="/dist/img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"/>
     <link href="/dist/styles.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="bg-primaryColor fixed top-0 left-0 w-full z-50" >
+        <nav class="container relative h-14 flex justify-between items-center">
+            <div>
+                <a href="#" class="text-2xl uppercase font-oswald">
+                    Bur<span class="text-secundaryColor">ger</span>
+                </a>
+            </div>
+            <div id="nav-menu" class="hidden absolute top-0 left-0 w-full py-14 bg-primariColor border-b border-secundaryColor 
+            md:block md:static md:py-0 md:border-none md:w-auto md:ml-auto
+            ">
+                <ul class="flex flex-col text-center gap-5 
+                    md:flex-row 
+                ">
+                    <li><a href="#home" class="nav__link hover:text-secundaryColor ease-in duration-200">Home</a></li>
+                    <li><a href="#about" class="nav__link hover:text-secundaryColor ease-in duration-200">About Us</a></li>
+                    <li><a href="#menu" class="nav__link hover:text-secundaryColor ease-in duration-200">Menu</a></li>
+                    <li><a href="#review" class="nav__link hover:text-secundaryColor ease-in duration-200">Review</a></li>
+                    <li><a href="#contact" class="nav__link hover:text-secundaryColor ease-in duration-200">Contact</a></li>
+                </ul>
+                <div id="nav-close" class="absolute top-[0.7rem] right-4 text-2xl cursor-pointer md:hidden">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="flex items-center gap-5">
+                <i class="ri-moon-line cursor-pointer text-xl ml-4"></i>
+                <div class="md:hidden" id="hamburger">
+                    <i class="ri-menu-2-line cursor-pointer text-xl"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script src="/dist/js/main.js"></script>
 </body>
 </html>

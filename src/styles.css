@@ -1,2 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
+@utility container {
+   padding: .90rem;
+   margin-inline: auto;
+  
+  @variant sm {
+    padding: 1.1rem;
+  }
+}
+
+@theme {
+    --breakpoint-sm:30rem;
+    --color-midnight: #121063;
+    --color-primariColor:#010a5e;
+    --color-primaryColorLigth:#010d78;
+    --color-secundaryColor:#FFCC00;
+    --color-paragraphColor:#c0c0c0;
+    --color-whiteColor:#fff;
+    --color-blackColor:#000;
+    --color-greenColor:#007936;
+    --color-redColor:#cc3433;
+    --color-darColor:#000;
+    --color-darkColorLight:#171717;
+    --container-center:true;
+    --font-display: "Oswald","DM Sans","Nunito", "sans-serif";
+    --font-oswald: "Oswald", sans-serif;
+    --font-dmsans: "DM Sans", sans-serif;
+    --font-nunito: "Nunito", sans-serif;
+}
+
+@layer{
+    body{
+        @apply text-whiteColor bg-primariColor tracking-wide font-dmsans;
+    }
+}

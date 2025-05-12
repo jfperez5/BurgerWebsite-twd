@@ -13,7 +13,7 @@
 @theme {
     --breakpoint-sm:30rem;
     --color-midnight: #121063;
-    --color-primariColor:#010a5e;
+    --color-primaryColor:#010a5e;
     --color-primaryColorLigth:#010d78;
     --color-secundaryColor:#FFCC00;
     --color-paragraphColor:#c0c0c0;
@@ -28,10 +28,45 @@
     --font-oswald: "Oswald", sans-serif;
     --font-dmsans: "DM Sans", sans-serif;
     --font-nunito: "Nunito", sans-serif;
+
+    --animate-movingY: move 2s linear infinite;
+
+    @keyframes move {
+        50% {
+        transform: translateY(-1rem);
+        }
+    }
 }
 
-@layer{
+@layer base{
     body{
-        @apply text-whiteColor bg-primariColor tracking-wide font-dmsans;
+        @apply text-whiteColor bg-primaryColor tracking-wide font-dmsans;
+    }
+
+    section{
+        @apply pt-16 pb-4 md:pt-20;
+    }
+}
+@layer components{
+    .btn{
+        @apply inline-block text-sm py-3 px-8 capitalize text-center cursor-pointer rounded-md ease-linear duration-200;
+    }
+
+    .btn-primary {
+        @apply text-blackColor bg-secundaryColor hover:opacity-75;
+    }
+}
+
+@layer utilities{
+    .home__title{
+        @apply text-4xl font-oswald font-bold uppercase lg:text-6xl;
+    }
+
+    .separator{
+        @apply w-28 h-[2px] bg-secundaryColor my-5;
+    }
+
+    .paragraph {
+        @apply text-paragraphColor text-lg leading-5;
     }
 }

@@ -10,6 +10,7 @@
     <link href="/dist/styles.css" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER -->
     <header class="bg-primaryColor fixed top-0 left-0 w-full z-50" >
         <nav class="container relative h-14 flex justify-between items-center">
             <div>
@@ -42,6 +43,7 @@
         </nav>
     </header>
     <main>
+        <!-- HOME -->
         <section id="home">
             <div class="container flex flex-col items-center gap-10 md:flex-row">
                 <div class="mx-auto md:basis-1/2 lg:basis-2/5 animate-movingY">
@@ -75,6 +77,50 @@
                 </div>
             </div>
         </section>
+        <!-- CATEGORY -->
+        <section id="category">
+             <div class="container flex flex-col gap-5 md:flex-row">
+                <!-- CARD 1 -->
+                <div class="bg-secundaryColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                    <div class="basis-1/3 relative">
+                        <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/burger-1.png" alt="sabrosa hamburguesa">
+                    </div>
+                    <div>
+                        <div class="mb-2">
+                            <h3 class="card__title">FOOD</h3>
+                            <p class="text-xs">Lorem, ipsum dolor. asd  </p>
+                        </div>
+                        <a href="#" class="text-blackColor cursor-pointer">Buy online</a>
+                    </div>
+                </div>
+                <!-- CARD 2 -->
+                <div class="bg-redColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                    <div class="basis-1/3 relative">
+                        <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/snack-1.png" alt="snack papas">
+                    </div>
+                    <div>
+                        <div>
+                            <h3 class="card__title">SNACK</h3>
+                            <p class="text-xs">Lorem ipsum dolor sit.</p>
+                        </div>
+                         <a href="#" class="text-secundaryColor cursor-pointer">Buy online</a>
+                    </div>
+                </div>
+                <!-- CARD 3 -->
+                <div class="bg-greenColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                    <div class="basis-1/3 relative">
+                        <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/beverage-2.png" alt="beverage">
+                    </div>
+                    <div>
+                        <div>
+                            <h3 class="card__title">BEVERAGE</h3>
+                            <p class="text-xs">Lorem ipsum dolor sit.</p>
+                        </div>
+                         <a href="#" class="text-secundaryColor cursor-pointer">Buy online</a>
+                    </div>
+                </div>
+             </div>
+        </section>     
     </main>
 
     <script src="/dist/js/main.js"></script>

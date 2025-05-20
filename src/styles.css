@@ -55,6 +55,8 @@
     .btn-primary {
         @apply text-blackColor bg-secundaryColor hover:opacity-75;
     }
+
+ 
 }
 
 @layer utilities{
@@ -77,4 +79,9 @@
         @apply text-paragraphColor text-lg leading-5;
     }
 
+}
+
+.tabs_wrap ul li:hover,
+.tabs_wrap ul li.active {
+    @apply bg-secundaryColor text-blackColor;
 }

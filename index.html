@@ -7,7 +7,11 @@
     <link rel="shortcut icon" href="/dist/img/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"/>
+    <!-- Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link href="/dist/styles.css" rel="stylesheet">
+   
 </head>
 <body>
     <!-- HEADER -->
@@ -412,16 +416,116 @@
             </div>
         </section>
         <!-- REVIEW -->
-
+        <section id="review" class="bg-primaryColorLigth py-20">
+            <div class="container">
+                <div class="max-w-md mx-auto text-center">
+                    <h2 class="section__title">CUSTOMER REVIEW</h2>
+                    <div class="separator mx-auto"></div>
+                    <p class="paragraph">Lorem ipsum dolor, sit amet  consectetur adipisicing elit. Ut minus, reiciendis similique.</p>
+                </div>
+                <div class="swiper my-10">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-5 bg-primaryColor rounded-lg p-6">
+                                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo iusto, sit repellat dolorem quam tempora nisi nostrum.</p>
+                                <div class="flex items-center">
+                                    <img src="/dist/img/review-1.jpg" alt="review image" class="w-12 h-12 rounded-full">
+                                    <div class="ml-2">
+                                        <p class="font-oswald uppercase">John doe</p>
+                                        <p class="paragraph">Designer</p>
+                                    </div>
+                                    <i class="fa-solid fa-quote-right text-4xl text-secundaryColor ml-auto"></i>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-5 bg-primaryColor rounded-lg p-6">
+                                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo iusto, sit repellat dolorem quam tempora nisi nostrum.</p>
+                                <div class="flex items-center">
+                                    <img src="/dist/img/review-2.jpg" alt="review image" class="w-12 h-12 rounded-full">
+                                    <div class="ml-2">
+                                        <p class="font-oswald uppercase">Laura Smith</p>
+                                        <p class="paragraph">Designer</p>
+                                    </div>
+                                    <i class="fa-solid fa-quote-right text-4xl text-secundaryColor ml-auto"></i>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-5 bg-primaryColor rounded-lg p-6">
+                                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo iusto, sit repellat dolorem quam tempora nisi nostrum.</p>
+                                <div class="flex items-center">
+                                    <img src="/dist/img/review-3.jpg" alt="review image" class="w-12 h-12 rounded-full">
+                                    <div class="ml-2">
+                                        <p class="font-oswald uppercase">Alexander Gamas</p>
+                                        <p class="paragraph">Designer</p>
+                                    </div>
+                                    <i class="fa-solid fa-quote-right text-4xl text-secundaryColor ml-auto"></i>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-5 bg-primaryColor rounded-lg p-6">
+                                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo iusto, sit repellat dolorem quam tempora nisi nostrum.</p>
+                                <div class="flex items-center">
+                                    <img src="/dist/img/review-4.jpg" alt="review image" class="w-12 h-12 rounded-full">
+                                    <div class="ml-2">
+                                        <p class="font-oswald uppercase">April Tarantino</p>
+                                        <p class="paragraph">Designer</p>
+                                    </div>
+                                    <i class="fa-solid fa-quote-right text-4xl text-secundaryColor ml-auto"></i>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-5 bg-primaryColor rounded-lg p-6">
+                                <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo iusto, sit repellat dolorem quam tempora nisi nostrum.</p>
+                                <div class="flex items-center">
+                                    <img src="/dist/img/review-5.jpg" alt="review image" class="w-12 h-12 rounded-full">
+                                    <div class="ml-2">
+                                        <p class="font-oswald uppercase">Michael Presley</p>
+                                        <p class="paragraph">Designer</p>
+                                    </div>
+                                    <i class="fa-solid fa-quote-right text-4xl text-secundaryColor ml-auto"></i>
+                                </div>
+                                
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="swiper-pagination"></div>  
+                </div>    
+            </div>
+        </section>
         <!-- CONTACT -->
-
+        <section id="contact" class="bg-secundaryColor py-16">
+            <div class="container flex flex-col gap-5 md:items-center md:flex-row">
+                <div class="space-y-4 md:flex-1">
+                    <h2 class="section__title text-blackColor">GET EXCLUSIVE UPDATE</h2>
+                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="flex flex-col gap-3 md:flex-row md:flex-1">
+                   
+                    <input type="email" placeholder="Email address"
+                    class="p-2 text-blackColor rounded-lg outline-none md:w-full bg-whiteColor"
+                    >
+                    <a href="" class="flex items-center justify-center gap-2 btn bg-blackColor hover:opacity-75">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- FOOTER -->
      <footer></footer>
     <!-- Scroll Up -->
 
     <!-- Swiper JS -->
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Scroll Reveal  -->
 
     <!-- Main.js -->

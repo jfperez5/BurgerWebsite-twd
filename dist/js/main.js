@@ -60,6 +60,37 @@ tabs.forEach(tab => {
     })
 })
 
+/*~~~~~~~~~~~~~~~~ CONFIGURACIÓN DEL SWIPER ~~~~~~~~~~~~~~~*/
+
+const swiper = new Swiper('.swiper', {
+    speed:400,
+    spaceBetween:30,
+    autoplay:{
+        delay:3000,
+        disableOnInteraction:false
+    },
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable:true
+  },
+  grabCursor:true,
+  breakpoints:{
+    // When window width is >= 640px
+    640:{
+        slidesPerView:1,
+    },
+    // When window width is >= 768px
+    768:{
+        slidesPerView:2,
+    },
+    // When window width is >= 1024px
+    1024:{
+        slidesPerView:3,
+    },
+
+  }
+});
 
 
 /*~~~~~~~~~~~~~~~~ DARK LIGHT THEME ~~~~~~~~~~~~~~~*/

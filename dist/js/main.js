@@ -92,9 +92,96 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
-
-/*~~~~~~~~~~~~~~~~ DARK LIGHT THEME ~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~ SHOW SCROLL UP ~~~~~~~~~~~~~*/
+const scrollUp = () => {
+    
+    const scrollUpBtn = document.getElementById("scroll-up");
+   
+
+    if(this.scrollY >= 250){
+        scrollUpBtn.classList.remove("-bottom-1/2");
+        scrollUpBtn.classList.add("bottom-4");
+    }else{
+        scrollUpBtn.classList.add("-bottom-1/2");
+        scrollUpBtn.classList.remove("bottom-4");
+    }
+}
+
+window.addEventListener('scroll',scrollUp)
+
 /*~~~~~~~~~~~~~ CHANGE BACKGROUND HEADER ~~~~~~~~~~~~~*/
-/*~~~~~~~~~~~~~ SCROLL SECTIONS ACTIVE LINK ~~~~~~~~~~~~*/
+
+const scrollHeader = () => {
+    const header = document.getElementById("header");
+    
+    if(this.scrollY >= 50){
+        header.classList.add("border-b", "border-secundaryColor");
+    }else{
+        header.classList.remove("border-b", "border-secundaryColor");
+    }
+}
+
+window.addEventListener('scroll',scrollHeader)
+
+/*~~~~~~~~~~~~~~~~ DARK LIGHT THEME ~~~~~~~~~~~~~~~1:58:08*/
+
+const html = document.querySelector("html");
+const themeBtn = document.getElementById("theme-toggle");
+
+if(localStorage.getItem("mode") == "dark"){
+    darkMode();
+}else{
+    lightMode();
+} 
+
+themeBtn.addEventListener('click', (e) => {
+   if(localStorage.getItem("mode") == "light"){
+    darkMode();
+   }else{
+    lightMode();
+   }
+})
+
+function darkMode () {
+    html.classList.add("dark");
+    themeBtn.classList.replace("ri-moon-line","ri-sun-line");
+    localStorage.setItem("mode","dark");
+}
+
+function lightMode () {
+    html.classList.remove("dark");
+    themeBtn.classList.replace("ri-sun-line","ri-moon-line");
+    localStorage.setItem("mode","light");
+}
+
+/*~~~~~~~~~~~~~ SCROLL SECTIONS ACTIVE LINK ~~~~~~~~2:09:23 ~~~~*/
+const activeLink = () => {
+    const sections = document.querySelector("section");
+    const navLinks = document.querySelector(".nav__link");
+
+    let current = 'home';
+
+    console.log(sections)
+    
+    sections.forEach( (section) => {
+        const sectionTop = section.offsetTop;
+
+        if(this.scrollY >= sectionTop -60){
+            current = section.getAttribute('id')
+        }
+    });
+
+    navLinks.forEach( (item) => {
+        item.classList.remove("text-secondaryColor");
+        if(item.href.includes(current)){
+           item.classList.add("text-secondaryColor"); 
+        }
+    });
+ }
+
+ window.addEventListener('scroll',activeLink)
+
+
+
+
 /*~~~~~~~~~~~~ SCROLL REVEAL ANIMATION ~~~~~~~~~~~~*/

@@ -1,3 +1,5 @@
+// const { default: createPlugin } = require("tailwindcss/plugin");
+
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const closeIcon = document.getElementById('nav-close');
@@ -156,31 +158,39 @@ function lightMode () {
 
 /*~~~~~~~~~~~~~ SCROLL SECTIONS ACTIVE LINK ~~~~~~~~2:09:23 ~~~~*/
 const activeLink = () => {
-    const sections = document.querySelector("section");
-    const navLinks = document.querySelector(".nav__link");
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav__link");
 
-    let current = 'home';
+    let currentSection = null; 
+    let minDistance = Number.POSITIVE_INFINITY;
 
-    console.log(sections)
-    
-    sections.forEach( (section) => {
-        const sectionTop = section.offsetTop;
+    sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distanceToTop = Math.abs(rect.top);
 
-        if(this.scrollY >= sectionTop -60){
-            current = section.getAttribute('id')
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            if (distanceToTop < minDistance) {
+                minDistance = distanceToTop;
+                currentSection = section.getAttribute("id");
+            }
         }
     });
 
-    navLinks.forEach( (item) => {
-        item.classList.remove("text-secondaryColor");
-        if(item.href.includes(current)){
-           item.classList.add("text-secondaryColor"); 
+    console.log("SECCIÓN ACTIVA:", currentSection);
+
+    navLinks.forEach((item) => {
+        // item.classList.remove("text-secondaryColor");
+
+        const linkHash = item.getAttribute("href")?.replace("#", "");
+        if (linkHash === currentSection) {
+            item.classList.add("text-secondaryColor");
+        }else {
+             item.classList.remove("text-secondaryColor"); 
         }
     });
- }
+};
 
- window.addEventListener('scroll',activeLink)
-
+window.addEventListener("scroll", activeLink);
 
 
 

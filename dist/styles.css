@@ -46,7 +46,6 @@
     --color-greenColor: #007936;
     --color-redColor: #cc3433;
     --color-darkColor: #000;
-    --color-darkColor2: #030712;
     --color-darkColorLight: #171717;
     --font-oswald: "Oswald", sans-serif;
     --font-dmsans: "DM Sans", sans-serif;
@@ -569,9 +568,6 @@
   }
   .text-paragraphColor {
     color: var(--color-paragraphColor);
-  }
-  .text-primaryColor {
-    color: var(--color-primaryColor);
   }
   .text-secundaryColor {
     color: var(--color-secundaryColor);

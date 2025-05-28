@@ -157,41 +157,57 @@ function lightMode () {
 }
 
 /*~~~~~~~~~~~~~ SCROLL SECTIONS ACTIVE LINK ~~~~~~~~2:09:23 ~~~~*/
+
 const activeLink = () => {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav__link");
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav__link");
 
-    let currentSection = null; 
-    let minDistance = Number.POSITIVE_INFINITY;
+  let currentSectionId = "home"; // Valor predeterminado en caso de que no se encuentre ninguna sección
 
-    sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const distanceToTop = Math.abs(rect.top);
+  // Itera sobre las secciones para encontrar cuál está actualmente en la vista
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const offset = 60; // Ajusta este valor si tu barra de navegación tiene una altura diferente
 
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            if (distanceToTop < minDistance) {
-                minDistance = distanceToTop;
-                currentSection = section.getAttribute("id");
-            }
-        }
-    });
+    if (rect.top <= offset && rect.bottom > offset) {
+        currentSectionId = section.getAttribute("id");
+    }
+  });
 
-    console.log("SECCIÓN ACTIVA:", currentSection);
+  // Manejo especial para el final de la página:
+  // Si el usuario está casi al final de la página, activa el enlace de "contacto".
+  // Esto es útil si la última sección es muy corta o si hay un footer grande.
+  if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 10
+  ) {
+    currentSectionId = "contact"; // Asegúrate de que 'contact' sea el ID de tu última sección
+  }
+  console.log("Current scrollY:", window.scrollY);
+console.log("Current section ID:", currentSectionId);
+  // Actualiza las clases de los enlaces de navegación
+  navLinks.forEach((link) => {
+    const linkHash = link.getAttribute("href")?.replace("#", "");
 
-    navLinks.forEach((item) => {
-        // item.classList.remove("text-secondaryColor");
+    // Primero, elimina la clase activa de todos los enlaces
+    link.classList.remove("text-secondaryColor");
 
-        const linkHash = item.getAttribute("href")?.replace("#", "");
-        if (linkHash === currentSection) {
-            item.classList.add("text-secondaryColor");
-        }else {
-             item.classList.remove("text-secondaryColor"); 
-        }
-    });
+    // Si el hash del enlace coincide con el ID de la sección actual, agrega la clase
+    if (linkHash === currentSectionId) {
+        console.log('Entro = ',linkHash, currentSectionId);
+      link.classList.add("text-secondaryColor");
+    }
+  });
 };
 
-window.addEventListener("scroll", activeLink);
+// Escucha el evento de desplazamiento y llama a la función activeLink.
+// { passive: true } mejora el rendimiento de desplazamiento al indicarle al navegador
+// que esta función no llamará a preventDefault().
+window.addEventListener("scroll", activeLink, { passive: true });
 
-
+// Llama a la función una vez al cargar la página para establecer el estado inicial
+// Esto es importante para que el enlace correcto esté activo cuando la página se carga
+// y el usuario aún no ha hecho scroll.
+document.addEventListener("DOMContentLoaded", activeLink);
 
 /*~~~~~~~~~~~~ SCROLL REVEAL ANIMATION ~~~~~~~~~~~~*/

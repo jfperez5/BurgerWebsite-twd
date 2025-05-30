@@ -51,9 +51,9 @@
         <section id="home">
             <div class="container flex flex-col items-center gap-10 md:flex-row">
                 <div class="mx-auto md:basis-1/2 lg:basis-2/5 animate-movingY">
-                    <img class="w-60 rounded-4xl md:w-full" src="/dist/img/home_image.jpg" alt="home image hamburger">
+                    <img class="home__image w-55 h-190 rounded-4xl md:w-full" src="/dist/img/home_image.jpg" alt="home image hamburger">
                 </div>
-                <div class="text-center md:basis-1/2 md:text-start lg:basis-3/5">
+                <div class="home__content text-center md:basis-1/2 md:text-start lg:basis-3/5">
                     <h1 class="home__title">HAPPY TUMMY WITH TASTY BURGERS.</h1>
                     <div class="separator mx-auto md:mx-0"></div>
                     <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, pariatur a error quos, similique voluptatem atque eaque facere numquam vitae nihil praesentium repellat nostrum minus. Et quae minus facilis obcaecati?</p>
@@ -85,7 +85,7 @@
         <section id="category">
              <div class="container flex flex-col gap-5 md:flex-row">
                 <!-- CARD 1 -->
-                <div class="bg-secundaryColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                <div class="category__card bg-secundaryColor flex py-3 rounded-lg overflow-hidden md:flex-1">
                     <div class="basis-1/3 relative">
                         <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/burger-1.png" alt="sabrosa hamburguesa">
                     </div>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <!-- CARD 2 -->
-                <div class="bg-redColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                <div class="category__card bg-redColor flex py-3 rounded-lg overflow-hidden md:flex-1">
                     <div class="basis-1/3 relative">
                         <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/snack-1.png" alt="snack papas">
                     </div>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <!-- CARD 3 -->
-                <div class="bg-greenColor flex py-3 rounded-lg overflow-hidden md:flex-1">
+                <div class="category__card bg-greenColor flex py-3 rounded-lg overflow-hidden md:flex-1">
                     <div class="basis-1/3 relative">
                         <img class="absolute w-28 -bottom-4 -left-4" src="/dist/img/beverage-2.png" alt="beverage">
                     </div>
@@ -124,12 +124,12 @@
                     </div>
                 </div>
              </div>
-        </section>     
+        </section>
         <!-- PROMO  -->
         <section id="promo">
              <div class="container flex flex-col gap-5 lg:gap-10 lg:flex-row">
                 <!-- card 1 -->
-                <div class="bg-primaryColorLight dark:bg-darkColorLight flex flex-col p-5 rounded-lg
+                <div class="promo__card-1 bg-primaryColorLight dark:bg-darkColorLight flex flex-col p-5 rounded-lg
                 md:flex-row md:items-center lg:flex-row-reverse lg:flex-1
                 ">
                     <img class="w-40 mx-auto hover:animate-movingY md:mx-5" src="/dist/img/promo-1.png" alt="promo image">
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <!-- card 2 -->
-                <div class="bg-primaryColorLight dark:bg-darkColorLight flex flex-col p-5 rounded-lg
+                <div class="promo__card-2 bg-primaryColorLight dark:bg-darkColorLight flex flex-col p-5 rounded-lg
                 md:flex-row md:items-center lg:flex-row-reverse lg:flex-1
                 ">
                      <img class="w-40 mx-auto hover:animate-movingY md:mx-5" src="/dist/img/promo-2.png" alt="promo image">
@@ -155,8 +155,8 @@
         <!-- ABOUT -->
         <section id="about">
             <div class="container flex flex-col gap-10 md:flex-row">
-                <div class="flex-1" ><img class="rounded-lg" src="/dist/img/about.jpg" alt="about image"></div>
-                <div class="flex-1">
+                <div class="about__img flex-1" ><img class=" rounded-lg" src="/dist/img/about.jpg" alt="about image"></div>
+                <div class="about__content flex-1">
                     <h2 class="section__title">FIND FOOD AND DRINKS, ALL-IN-ONE PLACE FOR YOUR BEST TASTE.</h2>
                     
                     <div class="separator"></div>
@@ -202,7 +202,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="menu__items">
                     <ul class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
                         <!-- food -->
                         <li class="item_wrap food">
@@ -406,7 +406,7 @@
         </section>
         <!-- REVIEW -->
         <section id="review" class="bg-primaryColorLigth dark:bg-darkColorLight py-20">
-            <div class="container">
+            <div class="customer__review container">
                 <div class="max-w-md mx-auto text-center">
                     <h2 class="section__title">CUSTOMER REVIEW</h2>
                     <div class="separator mx-auto"></div>
@@ -587,7 +587,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Scroll Reveal  -->
-
+    <script src="https://unpkg.com/scrollreveal"></script> 
     <!-- Main.js -->
     <script src="/dist/js/main.js"></script>
 </body>

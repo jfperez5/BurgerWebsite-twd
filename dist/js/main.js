@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 // const { default: createPlugin } = require("tailwindcss/plugin");
 
 const hamburger = document.getElementById('hamburger');
@@ -158,56 +159,96 @@ function lightMode () {
 
 /*~~~~~~~~~~~~~ SCROLL SECTIONS ACTIVE LINK ~~~~~~~~2:09:23 ~~~~*/
 
-const activeLink = () => {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav__link");
+    const navLinks = document.querySelectorAll('.nav__link');
+    const sections = document.querySelectorAll('section[id]'); // Selecciona todas las secciones con un ID
 
-  let currentSectionId = "home"; // Valor predeterminado en caso de que no se encuentre ninguna sección
+    // Función para marcar el enlace de navegación activo
+    const setActiveNavLink = (id) => {
+        navLinks.forEach(link => {
+            link.classList.remove('text-secundaryColor'); // Asegúrate de que 'secundaryColor' esté bien escrito si es diferente de 'secondaryColor'
+        });
+        const activeLink = document.querySelector(`.nav__link[href="#${id}"]`);
+        if (activeLink) {
+            activeLink.classList.add('text-secundaryColor');
+        }
+    };
 
-  // Itera sobre las secciones para encontrar cuál está actualmente en la vista
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const offset = 60; // Ajusta este valor si tu barra de navegación tiene una altura diferente
+    // 1. Manejo del clic en los enlaces de navegación
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Previene el comportamiento por defecto del ancla
 
-    if (rect.top <= offset && rect.bottom > offset) {
-        currentSectionId = section.getAttribute("id");
+            const targetId = link.getAttribute('href').substring(1); // Obtiene el ID del destino (quitando el '#')
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                // Desplazamiento suave a la sección
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Marca el enlace como activo
+                setActiveNavLink(targetId);
+            }
+        });
+    });
+
+    // 2. Manejo del scroll para cambiar el elemento activo
+    window.addEventListener('scroll', () => {
+        let currentActiveSectionId = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Un pequeño offset para que el cambio de activo ocurra cuando la sección está visible en una parte significativa
+            const offset = 150; 
+
+            if (window.scrollY >= sectionTop - offset && window.scrollY < sectionTop + sectionHeight - offset) {
+                currentActiveSectionId = section.getAttribute('id');
+            }
+        });
+
+        if (currentActiveSectionId) {
+            setActiveNavLink(currentActiveSectionId);
+        } else {
+            // Si no hay ninguna sección activa (por ejemplo, al principio de la página y antes de la primera sección)
+            // puedes decidir si quieres que el primer elemento sea activo o no.
+            // En este caso, si el scroll está en la parte superior, podemos activar "Home"
+            if (window.scrollY === 0) {
+                setActiveNavLink('home'); // Asegúrate de que el ID de tu sección home sea 'home'
+            }
+        }
+    });
+
+    // Inicializar el estado activo al cargar la página (por ejemplo, si la URL tiene un hash)
+    // o simplemente activar la sección 'home' si no hay hash.
+    const initialHash = window.location.hash.substring(1);
+    if (initialHash && document.getElementById(initialHash)) {
+        setActiveNavLink(initialHash);
+    } else {
+        // Por defecto, activa el enlace "Home" al cargar la página si no hay un hash en la URL
+        setActiveNavLink('home'); // Asegúrate de que el ID de tu sección home sea 'home'
     }
-  });
 
-  // Manejo especial para el final de la página:
-  // Si el usuario está casi al final de la página, activa el enlace de "contacto".
-  // Esto es útil si la última sección es muy corta o si hay un footer grande.
-  if (
-    window.innerHeight + window.scrollY >=
-    document.body.offsetHeight - 10
-  ) {
-    currentSectionId = "contact"; // Asegúrate de que 'contact' sea el ID de tu última sección
-  }
-  console.log("Current scrollY:", window.scrollY);
-console.log("Current section ID:", currentSectionId);
-  // Actualiza las clases de los enlaces de navegación
-  navLinks.forEach((link) => {
-    const linkHash = link.getAttribute("href")?.replace("#", "");
-
-    // Primero, elimina la clase activa de todos los enlaces
-    link.classList.remove("text-secondaryColor");
-
-    // Si el hash del enlace coincide con el ID de la sección actual, agrega la clase
-    if (linkHash === currentSectionId) {
-        console.log('Entro = ',linkHash, currentSectionId);
-      link.classList.add("text-secondaryColor");
-    }
-  });
-};
-
-// Escucha el evento de desplazamiento y llama a la función activeLink.
-// { passive: true } mejora el rendimiento de desplazamiento al indicarle al navegador
-// que esta función no llamará a preventDefault().
-window.addEventListener("scroll", activeLink, { passive: true });
-
-// Llama a la función una vez al cargar la página para establecer el estado inicial
-// Esto es importante para que el enlace correcto esté activo cuando la página se carga
-// y el usuario aún no ha hecho scroll.
-document.addEventListener("DOMContentLoaded", activeLink);
 
 /*~~~~~~~~~~~~ SCROLL REVEAL ANIMATION ~~~~~~~~~~~~*/
+
+const sr = ScrollReveal({
+    origin:"top",
+    distance:"60px",
+    duration:2500,
+    delay:400
+})
+
+sr.reveal(".home__image");
+sr.reveal(".home__content",{origin:"bottom"});
+sr.reveal(".category__card",{interval:300});
+sr.reveal(".promo__card-1",{origin:"left"});
+sr.reveal(".promo__card-2",{origin:"rigth"});
+sr.reveal(".about__img",{origin:"bottom"});
+sr.reveal(".about__content",{origin:"top"});
+sr.reveal(".menu__items",{origin:"left"});
+sr.reveal(".customer__review",{origin:"right"});
+sr.reveal(".footer");
+
+});
